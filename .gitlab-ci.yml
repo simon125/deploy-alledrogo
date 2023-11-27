@@ -1,5 +1,15 @@
+stages:
+  - build
+  - test
+
 build website:
+  stage: build
   image: node:14.18
   script:
     - npm install
     - npm run build
+
+.test app:
+  stage: test
+  script:
+    - npm run unit:test
