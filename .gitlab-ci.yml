@@ -1,24 +1,31 @@
+image: node:14.18
+
 stages:
   - build
   - test
+  - deploy
 
 build website:
   stage: build
-  image: node:14.18
   script:
     - npm install
     - npm run build
-  cache: # thanks to that line we can store/cache things so they are available in other jobs
+  artifacts:
     paths:
-      - node_modules/
+      - ./build
 
 .test app:
   stage: test
-  image: node:14.18
   script:
-    - ls
+    - npm i
     - npm run unit:test
 
 serious test:
   stage: test
   extends: .test app # we can use already existing template if exists - see above job prefixed with dot - dot means that job is hidden so it won't run unless it's used as a extension
+
+deploy to surge:
+  stage: deploy
+  script:
+    - npm install --global surge
+    - surge --project ./build --domain test-cicd-gitlab-alle.surge.sh
