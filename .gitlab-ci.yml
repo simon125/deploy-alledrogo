@@ -9,7 +9,11 @@ build website:
     - npm install
     - npm run build
 
-test app:
+.test app:
   stage: test
   script:
     - npm run unit:test
+
+serious test:
+  stage: test
+  extends: .test app
