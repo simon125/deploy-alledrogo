@@ -8,12 +8,14 @@ build website:
   script:
     - npm install
     - npm run build
+  cache: # thanks to that line we can store/cache things so they are available in other jobs
+    paths:
+      - node_modules/
 
 .test app:
   stage: test
   image: node:14.18
   script:
-    - npm i
     - npm run unit:test
 
 serious test:
