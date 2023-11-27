@@ -16,6 +16,7 @@ build website:
   stage: test
   image: node:14.18
   script:
+    - ls
     - npm run unit:test
 
 serious test:
