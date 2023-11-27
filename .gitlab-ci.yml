@@ -13,8 +13,9 @@ build website:
   stage: test
   image: node:14.18
   script:
+    - npm i
     - npm run unit:test
 
 serious test:
   stage: test
-  extends: .test app
+  extends: .test app # we can use already existing template if exists - see above job prefixed with dot - dot means that job is hidden so it won't run unless it's used as a extension
