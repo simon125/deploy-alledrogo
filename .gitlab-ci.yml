@@ -22,7 +22,7 @@ build website:
 .test app:
   stage: test
   script:
-    - npm i
+    - ls
     - npm run unit:test
 
 serious test:
