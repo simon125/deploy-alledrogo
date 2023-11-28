@@ -49,6 +49,7 @@ deploy production:
     name: production
     url: https://$PRODUCTION_DOMAIN
   when: manual
+  allow_failure: false # this line is necessery if there are jobs after that one - and we want to stop pipilines at that moment
   script:
     - npm install --global surge
     - surge --project ./build --domain $PRODUCTION_DOMAIN
