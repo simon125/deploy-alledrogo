@@ -42,7 +42,7 @@ deploy staging:
 deploy production:
   stage: deploy production
   environment:
-    name: staging
+    name: production
     url: https://test-cicd-gitlab-alle-staging.surge.sh
   script:
     - npm install --global surge
