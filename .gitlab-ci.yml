@@ -17,6 +17,8 @@ variables:
 
 build website:
   stage: build
+  only:
+    - master
   script:
     - npm install
     - npm run build
@@ -26,6 +28,8 @@ build website:
 
 .test app:
   stage: test
+  only:
+    - master
   script:
     - ls
     - npm run unit:test
@@ -36,6 +40,8 @@ serious test:
 
 deploy staging:
   stage: deploy staging
+  only:
+    - master
   environment:
     name: staging
     url: https://$STAGING_DOMAIN
@@ -45,10 +51,13 @@ deploy staging:
 
 deploy production:
   stage: deploy production
+  only:
+    - master
   environment:
     name: production
     url: https://$PRODUCTION_DOMAIN
   when: manual
+  allow_failure: false # this line is necessery if there are jobs after that one - and we want to stop pipilines at that moment
   script:
     - npm install --global surge
     - surge --project ./build --domain $PRODUCTION_DOMAIN
