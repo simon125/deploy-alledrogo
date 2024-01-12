@@ -6,6 +6,7 @@ export const Products = () => {
   return (
     <>
       <Header />
+      <article>TEST123</article>
       {/* 
           ZAIMPORTUJ I WYŚWIETL KOMPONENT ProductsList
       */}
