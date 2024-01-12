@@ -4,8 +4,8 @@ stages:
   - build
   - test
   - deploy staging
-  - deploy production
   - deploy firebase
+  - deploy production
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -70,9 +70,8 @@ deploy firebase:
   environment:
     name: firebase
     url: https://test-001-9bd05.web.app
-  when: manual
   script:
     - npm install -g firebase-tools
     - npm install
     - npm run build
-    - firebase deploy --token "$FIREBASE_TOKEN"
+    - firebase deploy --token $FIREBASE_TOKEN
