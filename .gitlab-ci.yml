@@ -5,6 +5,7 @@ stages:
   - test
   - deploy staging
   - deploy production
+  - deploy firebase
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
