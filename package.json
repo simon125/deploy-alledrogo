@@ -1,6 +1,7 @@
 {
   "name": "react-redux-cd",
   "version": "0.1.0",
+  "homepage": "https://simon125.github.io/deploy-alledrogo",
   "private": true,
   "dependencies": {
     "@picocss/pico": "^1.5.10",
@@ -23,7 +24,9 @@
     "eject": "react-scripts eject",
     "unit:test": "jest",
     "cypress:open": "cypress open",
-    "cypress:ci": "cypress run --browser=chrome"
+    "cypress:ci": "cypress run --browser=chrome",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +49,7 @@
   },
   "devDependencies": {
     "cypress": "^13.6.2",
-    "eslint-plugin-cypress": "^2.15.1"
+    "eslint-plugin-cypress": "^2.15.1",
+    "gh-pages": "^6.1.1"
   }
 }
